@@ -2,7 +2,7 @@
   "name": "farmage_client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://manueloglez.github.io/farmage_client",
+  "homepage": "https://manueloglez.github.io/farmage_client",
   "dependencies": {
     "@geoman-io/leaflet-geoman-free": "^2.11.2",
     "@mapbox/leaflet-omnivore": "^0.3.4",
