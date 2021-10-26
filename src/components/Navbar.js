@@ -15,7 +15,7 @@ const Navbar = ({currentUser, onSignOut}) =>  {
   if (currentUser) {
     return (
       <Menu
-      style={{marginBottom:0}}>
+      style={{marginBottom:0, height: '6vh'}}>
         <Menu.Item>
           <Link to="/fields">
             <Header as='h1' style={{margin:0}} color='teal'> 
@@ -25,10 +25,9 @@ const Navbar = ({currentUser, onSignOut}) =>  {
         </Menu.Item>
         
         <Menu.Menu position='right'>
-          <Menu.Item>
-            <Header as='h3'>
-              {currentUser["full_name"]}
-            </Header>
+          <Menu.Item 
+          className='logout-btn'>
+            {currentUser["full_name"]}
           </Menu.Item>
           <Menu.Item
           className='logout-btn'

@@ -35,7 +35,7 @@ const FieldsList = ({user}) => {
 
   return (
     <Grid>
-      <Grid.Row>
+      <Grid.Row style={{paddingBottom: '0'}}>
         <Grid.Column width={4}style={{padding: '10px 25px 0 30px'}}>
           <Input placeholder='Search...' style={{width: '100%'}} 
             onChange={(event, data) => {

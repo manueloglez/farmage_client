@@ -19,7 +19,6 @@ const FieldsMap = ({polygons, draw = false, geometry, setGeometry, preview, }) =
   };
 
   const onFeatureGroupReady = reactFGref => {
-    console.log('FeatureGroup ready', reactFGref);
     setEditableFG(reactFGref);
     
   };
@@ -47,7 +46,6 @@ const FieldsMap = ({polygons, draw = false, geometry, setGeometry, preview, }) =
   }
   
   const handleKmlLoad = (map, geometry) => {
-    console.log('KML loaded');
     L.geoJSON(geometry).addTo(editableFG)
     editableFG.addTo(map)
     map.fitBounds(editableFG.getBounds())
@@ -82,22 +80,19 @@ const FieldsMap = ({polygons, draw = false, geometry, setGeometry, preview, }) =
         draw
       });
       map.on('pm:create', ({layer, shape}) => {
-        console.log('pm:create', layer, shape);
         const geojson = L.polygon(layer._latlngs[0]).toGeoJSON().geometry;
         setGeometry(geojson)
         layer.addTo(map)
       });
       editableFG.on('pm:update', ({layer, shape}) => {
-        console.log('edited')
         const geojson = L.polygon(layer._latlngs[0]).toGeoJSON().geometry;
         setGeometry(geojson)
       })
-      console.log(editableFG)
     }
   }, [draw, geometry, map, editableFG])
 
   return (
-    <MapContainer style={{height: '95vh', margin: '0'}} center={[49.212367, -122.921688]} zoom={13} scrollWheelZoom={false}>
+    <MapContainer style={{height: '94vh', margin: '0'}} center={[49.212367, -122.921688]} zoom={13} scrollWheelZoom={true}>
       <FeatureGroup 
         ref={featureGroupRef => {
         onFeatureGroupReady(featureGroupRef) }}>
@@ -109,7 +104,6 @@ const FieldsMap = ({polygons, draw = false, geometry, setGeometry, preview, }) =
           if(bounds.isValid()){
             map.fitBounds(bounds);
           }
-          console.log(map)
           return null
         }}
       </MapConsumer>
